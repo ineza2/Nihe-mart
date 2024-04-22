@@ -1,0 +1,29 @@
+{
+  "name": "nihe-mart",
+  "version": "1.0.0",
+  "description": "backend for NiheMart",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RUKUNDO-Prince/nihe-mart.git"
+  },
+  "author": "Ineza2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RUKUNDO-Prince/nihe-mart/issues"
+  },
+  "homepage": "https://github.com/RUKUNDO-Prince/nihe-mart#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.12.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2"
+  }
+}
