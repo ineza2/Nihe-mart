@@ -1,5 +1,5 @@
-import Joi from "joi";
-import mongoose from "mongoose";
+const joi = require("joi");
+const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
   email: {
@@ -28,4 +28,4 @@ const schema = new mongoose.Schema({
 
 const Account = mongoose.model("User", schema);
 
-export default Account;
+module.exports = Account;

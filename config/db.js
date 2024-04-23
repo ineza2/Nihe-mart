@@ -1,11 +1,9 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 require("dotenv").config({ path: "./.env" });
 
 const dbConn = async () => {
   try {
-    await mongoose.connect(process.env.DATABASE_URL, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
+    await mongoose.connect("mongodb://localhost:27017/niheMart", {
       autoIndex: true,
     });
     console.log("Db connected..........");
@@ -15,4 +13,4 @@ const dbConn = async () => {
   }
 };
 
-export default dbConn;
+module.exports = dbConn;

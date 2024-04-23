@@ -1,6 +1,7 @@
-import chalk from "chalk";
-import jwt from "jsonwebtoken";
-export const authenticate = (req, res, next) => {
+// import chalk from "chalk";
+// import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
+const authenticate = (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
     return res.status(401).json({ message: "Unauthorised" });
@@ -10,8 +11,9 @@ export const authenticate = (req, res, next) => {
     req.user = decodedToken.id;
     next();
   } catch (error) {
-    console.log(chalk.red("Authenticate middleware error"));
+    console.log("Authenticate middleware error");
     console.error(error);
     return res.status(401).json({ message: "Unauthorised" });
   }
 };
+module.exports = { authenticate };

@@ -1,8 +1,10 @@
-import { compare, gensalt, hash } from "bcrypt";
-import Account from "../models/user";
-import chalk from "chalk";
+const bcrypt = require("bcrypt");
+const Account = require("../models/user");
+// const chalk = require("chalk");
 
-export const createAccount = async (req, res) => {
+const { compare, genSalt, hash } = bcrypt;
+
+const createAccount = async (req, res) => {
   try {
     const data = req.body;
     const checkUniqueEmail = await Account.findOne({ email: data.email });
@@ -21,19 +23,14 @@ export const createAccount = async (req, res) => {
       .status(201)
       .json({ message: "Account Created Successfully", account });
   } catch (error) {
-    console.log(chalk.red("Creating Account Error"));
+    console.log("Creating Account Error");
     console.error(error);
     return res.status(500).json({ error: "Internal server error" });
   }
 };
 
-export const logout = async (req, res) => {
-  try {
-    res.clearCookie("token");
-    res.status(200).json({ message: "Logged Out Successfully" });
-  } catch (error) {
-    console.log(chalk.red("Logout Error"));
-    console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
+
+
+module.exports = {
+  createAccount
 };
