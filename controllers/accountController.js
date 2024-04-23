@@ -3,6 +3,7 @@ const Account = require("../models/user");
 // const chalk = require("chalk");
 
 const { compare, genSalt, hash } = bcrypt;
+// SOME CHANGES
 
 const createAccount = async (req, res) => {
   try {
